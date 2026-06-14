@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Closer | Follow-Up Details</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/api.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/follow-up-details.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="/">
+        <span class="brand-mark">AC</span>
+        <span>AI Closer</span>
+      </a>
+      <nav class="nav-actions" aria-label="Primary">
+        <a class="nav-link" href="/">Dashboard</a>
+        <a class="nav-link" href="/add-client">Add Client</a>
+        <a class="nav-link active" href="/follow-ups">Follow Ups</a>
+        <button class="icon-button" id="themeToggle" type="button" title="Toggle dark mode">Dark</button>
+      </nav>
+    </header>
+
+    <main class="shell">
+      <section class="page-bar">
+        <div>
+          <p class="eyebrow">Follow-Up Details</p>
+          <h1 id="detailsTitle">Follow-Up</h1>
+        </div>
+        <div class="toolbar">
+          <button class="secondary-button" id="regenerateMessage" type="button">Regenerate Message</button>
+          <button class="secondary-button" id="toggleStatus" type="button">Mark Completed</button>
+        </div>
+      </section>
+
+      <section class="profile-strip">
+        <div>
+          <span>Client</span>
+          <strong id="clientName">-</strong>
+        </div>
+        <div>
+          <span>Follow-Up Number</span>
+          <strong id="followupNumber">-</strong>
+        </div>
+        <div>
+          <span>Scheduled Send Date</span>
+          <strong id="scheduledDate">-</strong>
+        </div>
+        <div>
+          <span>Status</span>
+          <strong id="followupStatus">-</strong>
+        </div>
+        <div>
+          <span>Deal Probability</span>
+          <strong id="dealProbability">-</strong>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Full WhatsApp Message</h2>
+              <p>AI-generated personalized follow-up draft.</p>
+            </div>
+          </div>
+          <pre class="transcript-box" id="fullMessage">Loading message...</pre>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Follow-Up Context</h2>
+              <p>Objective, tone, and transcript evidence used.</p>
+            </div>
+          </div>
+          <div class="analysis-grid" id="detailsGrid"></div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Meeting Summary</h2>
+            <p>Previous discussions that informed this follow-up.</p>
+          </div>
+        </div>
+        <p id="meetingSummaryText">Loading summary...</p>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
+

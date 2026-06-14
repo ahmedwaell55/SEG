@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Closer | Add Client</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/api.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/add-client.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="/">
+        <span class="brand-mark">AC</span>
+        <span>AI Closer</span>
+      </a>
+      <nav class="nav-actions" aria-label="Primary">
+        <a class="nav-link" href="/">Dashboard</a>
+        <a class="nav-link active" href="/add-client">Add Client</a>
+        <a class="nav-link" href="/follow-ups">Follow Ups</a>
+        <button class="icon-button" id="themeToggle" type="button" title="Toggle dark mode">Dark</button>
+      </nav>
+    </header>
+
+    <main class="shell narrow">
+      <section class="page-bar">
+        <div>
+          <p class="eyebrow">New Analysis</p>
+          <h1>Add Client</h1>
+        </div>
+        <a class="secondary-button" href="/">Back to Dashboard</a>
+      </section>
+
+      <form class="stack" id="processForm">
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Client Known Data</h2>
+              <p>Basic information used to create or update the client profile.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              <span>Client Name</span>
+              <input class="input" id="clientName" name="clientName" type="text" required maxlength="150" />
+            </label>
+            <label>
+              <span>Client Phone Number</span>
+              <input class="input" id="clientPhone" name="clientPhone" type="tel" required maxlength="50" />
+            </label>
+            <label>
+              <span>Last Meeting Date</span>
+              <input class="input" id="meetingDate" name="meetingDate" type="date" required />
+            </label>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Meeting Transcript</h2>
+              <p>Paste a transcript or upload a plain text file, then process it with the AI workflow.</p>
+            </div>
+            <div class="toolbar">
+              <input id="fileInput" type="file" accept=".txt,.md,.text" hidden />
+              <button class="secondary-button" id="uploadButton" type="button">Upload Transcript File</button>
+            </div>
+          </div>
+
+          <textarea id="transcript" class="textarea" rows="16" placeholder="Paste meeting transcript here..." required></textarea>
+
+          <div class="form-actions">
+            <p id="formStatus" class="status-text">Ready to process.</p>
+            <button class="primary-button" id="processButton" type="submit">Process Meeting</button>
+          </div>
+        </section>
+      </form>
+
+      <section class="panel hidden" id="resultPanel">
+        <div class="panel-header">
+          <div>
+            <h2>Latest AI Result</h2>
+            <p>The meeting was stored in the client profile.</p>
+          </div>
+          <a class="primary-button" id="viewProfileLink" href="/">Open Profile</a>
+        </div>
+        <div class="analysis-grid" id="resultPreview"></div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

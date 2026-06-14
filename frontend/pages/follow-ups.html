@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Closer | Follow Ups</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/api.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/follow-ups.js?v=20260603-table2" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="/">
+        <span class="brand-mark">AC</span>
+        <span>AI Closer</span>
+      </a>
+      <nav class="nav-actions" aria-label="Primary">
+        <a class="nav-link" href="/">Dashboard</a>
+        <a class="nav-link" href="/add-client">Add Client</a>
+        <a class="nav-link active" href="/follow-ups">Follow Ups</a>
+        <button class="icon-button" id="themeToggle" type="button" title="Toggle dark mode">Dark</button>
+      </nav>
+    </header>
+
+    <main class="shell">
+      <section class="page-bar">
+        <div>
+          <p class="eyebrow">Follow-Up Center</p>
+          <h1>Follow Ups</h1>
+        </div>
+      </section>
+
+      <section class="panel followups-dashboard">
+        <div class="panel-header">
+          <div>
+            <h2>Follow-Up Dashboard</h2>
+            <p>Filter by exact day, client name, or phone number.</p>
+          </div>
+          <div class="followup-filters">
+            <input id="followupSearch" class="input" type="search" placeholder="Search name or number" />
+            <input id="followupDate" class="input date-input" type="date" aria-label="Filter follow-ups by date" />
+            <button class="secondary-button" id="filterDateButton" type="button">Filter Day</button>
+            <button class="secondary-button" id="todayButton" type="button">Today</button>
+            <button class="secondary-button" id="clearFiltersButton" type="button">Clear</button>
+          </div>
+        </div>
+        <div class="followup-table-summary" id="followupSummary">Loading follow-ups...</div>
+        <div class="table-wrap followup-table-wrap">
+          <table class="followup-table">
+            <thead>
+              <tr>
+                <th>Follow-Up Date</th>
+                <th>Client</th>
+                <th>Phone Number</th>
+                <th>Status</th>
+                <th>Days</th>
+                <th>Priority</th>
+                <th>Deal Probability</th>
+                <th>WhatsApp Preview</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="followupTableBody">
+              <tr>
+                <td class="empty-cell" colspan="9">Loading follow-ups...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

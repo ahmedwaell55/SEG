@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Closer | Client Profile</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/api.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/profile.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="/">
+        <span class="brand-mark">AC</span>
+        <span>AI Closer</span>
+      </a>
+      <nav class="nav-actions" aria-label="Primary">
+        <a class="nav-link" href="/">Dashboard</a>
+        <a class="nav-link" href="/add-client">Add Client</a>
+        <a class="nav-link" href="/follow-ups">Follow Ups</a>
+        <button class="icon-button" id="themeToggle" type="button" title="Toggle dark mode">Dark</button>
+      </nav>
+    </header>
+
+    <main class="shell">
+      <section class="page-bar">
+        <div>
+          <p class="eyebrow">Smart Client Profile</p>
+          <h1 id="clientTitle">Client Profile</h1>
+        </div>
+        <div class="toolbar">
+          <button class="secondary-button" id="editClientButton" type="button">Edit Client Data</button>
+          <a class="primary-button" href="/add-client">New Meeting</a>
+        </div>
+      </section>
+
+      <section class="profile-strip" id="profileSummary">
+        <div>
+          <span>Client Name</span>
+          <strong id="profileName">Loading...</strong>
+        </div>
+        <div>
+          <span>Client Phone Number</span>
+          <strong id="profilePhone">-</strong>
+        </div>
+        <div>
+          <span>Last Meeting Date</span>
+          <strong id="profileDate">-</strong>
+        </div>
+        <div>
+          <span>Lead Qualification</span>
+          <strong id="profileLeadStage">-</strong>
+        </div>
+        <div>
+          <span>Client Acceptance</span>
+          <strong id="profileAcceptance">-</strong>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Given Transcript</h2>
+              <p id="meetingMeta">Select a meeting from the timeline.</p>
+            </div>
+            <div class="toolbar">
+              <button class="secondary-button" id="reprocessMeeting" type="button">Reprocess AI</button>
+              <a class="secondary-button" id="exportPdf" href="#" target="_blank" rel="noreferrer">Export PDF</a>
+            </div>
+          </div>
+          <pre class="transcript-box" id="transcriptBox">Loading transcript...</pre>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Sentimental Analysis & Recommendations for next meeting</h2>
+              <p>Summary, probability, objections, buying signals, and next actions.</p>
+            </div>
+          </div>
+          <div class="analysis-grid" id="analysisGrid"></div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Previous Meetings History</h2>
+            <p>Timeline view of all saved interactions for this client.</p>
+          </div>
+        </div>
+        <div class="timeline" id="meetingTimeline"></div>
+      </section>
+    </main>
+
+    <dialog class="modal" id="editDialog">
+      <form method="dialog" class="modal-card" id="editForm">
+        <div class="panel-header">
+          <div>
+            <h2>Edit Client Data</h2>
+            <p>Update the stored client information.</p>
+          </div>
+          <button class="icon-button" value="cancel" type="button" id="closeDialog">Close</button>
+        </div>
+        <label>
+          <span>Client Name</span>
+          <input class="input" id="editName" type="text" required maxlength="150" />
+        </label>
+        <label>
+          <span>Client Phone Number</span>
+          <input class="input" id="editPhone" type="tel" required maxlength="50" />
+        </label>
+        <div class="form-actions">
+          <button class="danger-button" id="deleteClientButton" type="button">Delete Client</button>
+          <button class="primary-button" type="submit">Save Changes</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

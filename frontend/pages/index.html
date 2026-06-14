@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Closer | Home Page</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/api.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/home.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="/">
+        <span class="brand-mark">AC</span>
+        <span>AI Closer</span>
+      </a>
+      <nav class="nav-actions" aria-label="Primary">
+        <a class="nav-link active" href="/">Dashboard</a>
+        <a class="nav-link" href="/add-client">Add Client</a>
+        <a class="nav-link" href="/follow-ups">Follow Ups</a>
+        <button class="icon-button" id="themeToggle" type="button" title="Toggle dark mode">Dark</button>
+      </nav>
+    </header>
+
+    <main class="shell">
+      <section class="page-bar">
+        <div>
+          <p class="eyebrow">CRM Dashboard</p>
+          <h1>Home Page</h1>
+        </div>
+        <a class="primary-button" href="/add-client">Add Client</a>
+      </section>
+
+      <section class="metric-grid" id="metricGrid" aria-label="Dashboard analytics">
+        <article class="metric">
+          <span>Total Clients</span>
+          <strong id="totalClients">0</strong>
+        </article>
+        <article class="metric">
+          <span>Total Meetings</span>
+          <strong id="totalMeetings">0</strong>
+        </article>
+        <article class="metric">
+          <span>High Acceptance</span>
+          <strong id="highAcceptance">0</strong>
+        </article>
+        <article class="metric">
+          <span>Average Sentiment</span>
+          <strong id="averageSentiment">No data</strong>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Clients</h2>
+            <p>Track meeting history, acceptance score, and latest AI insights.</p>
+          </div>
+          <div class="toolbar">
+            <input id="searchInput" class="input" type="search" placeholder="Search clients or phone" />
+            <select id="sortBy" class="input compact" aria-label="Sort clients">
+              <option value="date">Last meeting</option>
+              <option value="acceptance">Acceptance</option>
+              <option value="name">Client name</option>
+            </select>
+            <button class="secondary-button" id="sortOrder" type="button" data-order="desc">Desc</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Client Name</th>
+                <th>Client Phone Number</th>
+                <th>Last Meeting Date</th>
+                <th>Client Acceptance</th>
+              </tr>
+            </thead>
+            <tbody id="clientsTable">
+              <tr>
+                <td colspan="4" class="empty-cell">Loading clients...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <button class="secondary-button" id="prevPage" type="button">Previous</button>
+          <span id="pageStatus">Page 1 of 1</span>
+          <button class="secondary-button" id="nextPage" type="button">Next</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

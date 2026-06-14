@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Closer | Login</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/api.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/login.js" defer></script>
+  </head>
+  <body class="login-body">
+    <main class="login-shell">
+      <section class="login-panel">
+        <div class="login-brand">
+          <span class="brand-mark">AC</span>
+          <div>
+            <p class="eyebrow">AI Closer</p>
+            <h1>Log in</h1>
+          </div>
+        </div>
+
+        <form class="auth-form" id="loginForm">
+          <label>
+            Username
+            <input class="input" id="username" name="username" type="text" autocomplete="username" required />
+          </label>
+          <label>
+            Password
+            <input class="input" id="password" name="password" type="password" autocomplete="current-password" required />
+          </label>
+          <button class="primary-button full-width" id="loginSubmit" type="submit">Log In</button>
+          <p class="form-message" id="loginMessage" role="alert"></p>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meeting Analysis | AI Closer</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/api.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/meeting-details.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="/">
+        <span class="brand-mark">AC</span>
+        <span>AI Closer</span>
+      </a>
+      <nav class="nav-actions" aria-label="Primary">
+        <a class="nav-link" href="/">Dashboard</a>
+        <a class="nav-link" href="/add-client">Add Client</a>
+        <a class="nav-link" href="/follow-ups">Follow Ups</a>
+        <button class="icon-button" id="themeToggle" type="button" title="Toggle dark mode">Dark</button>
+      </nav>
+    </header>
+
+    <main class="shell">
+      <!-- Page Header -->
+      <section class="page-bar">
+        <div>
+          <p class="eyebrow">Meeting Analysis</p>
+          <h1 id="clientName">Client Name</h1>
+        </div>
+        <button class="primary-button" id="exportBtn" type="button">Export Analysis</button>
+      </section>
+
+      <!-- Executive Summary Strip -->
+      <section class="profile-strip" id="summaryStrip">
+        <div>
+          <span>Sentiment</span>
+          <strong id="sentimentValue">Neutral</strong>
+        </div>
+        <div>
+          <span>Lead Stage</span>
+          <strong id="stageValue">Qualified</strong>
+        </div>
+        <div>
+          <span>Acceptance Rate</span>
+          <strong id="acceptanceValue">0%</strong>
+        </div>
+        <div>
+          <span>Urgency</span>
+          <strong id="urgencyValue">Medium</strong>
+        </div>
+        <div>
+          <span>Confidence</span>
+          <strong id="confidenceValue">0%</strong>
+        </div>
+      </section>
+
+      <!-- Main Content Grid -->
+      <div class="content-grid">
+        <!-- LEFT COLUMN: Analysis Sections -->
+        <div class="stack">
+
+          <!-- 1. Sentiment & Emotional Analysis Card -->
+          <article class="panel">
+            <div class="panel-header">
+              <h2>Sentiment & Tone</h2>
+            </div>
+            <div style="margin-top: 12px;">
+              <div class="sentiment-indicator" id="sentimentBadge">Neutral</div>
+              <p class="sub-header">Emotional Drivers</p>
+              <ul id="sentimentDriversList" style="margin: 0; padding-left: 18px;">
+                <li>No data available</li>
+              </ul>
+              <div class="meta-metrics">
+                <div class="meta-metric">
+                  <span>Tone</span>
+                  <strong id="emotionalTone">Neutral</strong>
+                </div>
+                <div class="meta-metric">
+                  <span>Hesitation Level</span>
+                  <strong id="hesitationLevel">Low</strong>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Lead Qualification Stage Card -->
+          <article class="panel">
+            <div class="panel-header">
+              <h2>Lead Qualification Stage</h2>
+            </div>
+            <div style="margin-top: 12px;">
+              <div class="stage-tag mini" id="stageBadge">Qualified</div>
+              <p class="sub-header">Stage Signals</p>
+              <ul id="stageSignalsList" style="margin: 0; padding-left: 18px;">
+                <li>No signals detected</li>
+              </ul>
+              <p class="sub-header" style="margin-top: 12px;">Stage Blockers</p>
+              <ul id="stageBlockersList" style="margin: 0; padding-left: 18px; color: var(--danger);">
+                <li>None identified</li>
+              </ul>
+              <div class="meta-metrics">
+                <div class="meta-metric">
+                  <span>Stage Confidence</span>
+                  <strong id="stageConfidence">0%</strong>
+                </div>
+                <div class="meta-metric">
+                  <span>Timeline to Next</span>
+                  <strong id="advancementTimeline">Unknown</strong>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Deal Probability Meter -->
+          <article class="panel deal-health-card">
+            <h2>Deal Health & Acceptance Probability</h2>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar-fill" id="probabilityBar" style="width: 50%;"></div>
+            </div>
+            <div class="progress-bar-text">
+              <span id="probabilityLabel">Medium Probability</span>
+              <strong id="probabilityScore">0%</strong>
+            </div>
+            <div class="meta-metrics">
+              <div class="meta-metric">
+                <span>Confidence</span>
+                <strong id="dealConfidence">0%</strong>
+              </div>
+              <div class="meta-metric">
+                <span>Fallback Data</span>
+                <strong id="fallbackFlag">No</strong>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Buying Signals & Pain Points -->
+          <article class="panel">
+            <h2>Buying Signals & Pain Points</h2>
+            
+            <p class="sub-header">Key Buying Signals</p>
+            <div id="buyingSignalsContainer" style="display: grid; gap: 8px; margin-bottom: 12px;">
+              <span style="color: var(--muted); font-size: 13px;">No buying signals detected</span>
+            </div>
+
+            <p class="sub-header" style="margin-top: 12px;">Pain Points</p>
+            <ul id="painPointsList" style="margin: 0; padding-left: 18px;">
+              <li style="color: var(--muted);">No pain points identified</li>
+            </ul>
+          </article>
+
+          <!-- 5. Objections & Risks -->
+          <article class="panel">
+            <h2>Objections & Risks</h2>
+            
+            <p class="sub-header">Stated Objections</p>
+            <div id="objectionsContainer" style="display: grid; gap: 8px; margin-bottom: 12px;">
+              <span style="color: var(--muted); font-size: 13px;">No objections identified</span>
+            </div>
+
+            <p class="sub-header" style="margin-top: 12px;">Deal Risks</p>
+            <ul id="risksList" style="margin: 0; padding-left: 18px; color: var(--danger);">
+              <li>No risks identified</li>
+            </ul>
+          </article>
+
+          <!-- 6. Opportunities -->
+          <article class="panel">
+            <h2>Expansion & Opportunities</h2>
+            <ul id="opportunitiesList" style="margin: 0; padding-left: 18px; color: var(--success);">
+              <li>No opportunities identified</li>
+            </ul>
+          </article>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Strategic Actions -->
+        <div class="stack">
+
+          <!-- Stakeholders / Buying Committee -->
+          <article class="panel stakeholders-card">
+            <h2>Buying Committee</h2>
+            <div class="stakeholders-list" id="stakeholdersList">
+              <span style="color: var(--muted); font-size: 13px;">No stakeholders identified</span>
+            </div>
+          </article>
+
+          <!-- Key Quotes -->
+          <article class="panel">
+            <h2>Key Client Quotes</h2>
+            <div id="quotesContainer" style="display: grid; gap: 10px;">
+              <span style="color: var(--muted); font-size: 13px;">No quotes available</span>
+            </div>
+          </article>
+
+          <!-- Sales Strategy Card -->
+          <article class="panel commercial-card bg-accent-soft-panel">
+            <div class="card-title-header">
+              <span class="card-icon">⚡</span>
+              <h4>Sales Strategy</h4>
+            </div>
+            <p class="strategy-paragraph" id="strategySummary">Establish trust and gather more information</p>
+          </article>
+
+          <!-- Communication Style -->
+          <article class="panel commercial-card">
+            <div class="card-title-header green">
+              <span class="card-icon">💬</span>
+              <h4>Recommended Communication Style</h4>
+            </div>
+            <p class="strategy-paragraph" id="communicationStyle">Consultative and analytical</p>
+          </article>
+
+          <!-- Next Steps / Actions -->
+          <article class="panel commercial-card">
+            <div class="card-title-header green">
+              <span class="card-icon">✓</span>
+              <h4>Next Action Items</h4>
+            </div>
+            <ul id="nextStepsList" style="margin: 0; padding-left: 18px; font-size: 13px;">
+              <li>Schedule follow-up call</li>
+            </ul>
+          </article>
+
+          <!-- Recommendations -->
+          <article class="panel commercial-card">
+            <div class="card-title-header blue" style="border-color: var(--accent); --c: var(--accent);">
+              <span class="card-icon">💡</span>
+              <h4 style="color: var(--accent-strong);">Strategic Recommendations</h4>
+            </div>
+            <ul id="recommendationsList" style="margin: 0; padding-left: 18px; font-size: 13px;">
+              <li>Manual review recommended</li>
+            </ul>
+          </article>
+
+          <!-- Follow-up Email Blueprint -->
+          <article class="panel follow-up-blueprint-panel">
+            <h2>Follow-up Email Blueprint</h2>
+            <div class="email-draft-box" id="followUpTemplate">Follow up with discovery questions to understand client needs better.</div>
+            <button class="secondary-button" id="copyTemplateBtn" type="button" style="margin-top: 12px;">Copy to Clipboard</button>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Speaker Info & Transcript Summary -->
+      <section class="panel" style="margin-top: 18px;">
+        <h2>Meeting Details</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 12px;">
+          <div>
+            <span class="sub-header">Sales Representative</span>
+            <strong id="salesSpeaker">Unknown</strong>
+          </div>
+          <div>
+            <span class="sub-header">Client Representative</span>
+            <strong id="clientSpeaker">Unknown</strong>
+          </div>
+          <div>
+            <span class="sub-header">Meeting Summary</span>
+            <strong id="meetingSummary" style="font-size: 14px; line-height: 1.5;">Loading...</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- Full Executive Summary -->
+      <section class="panel summary-panel" style="margin-top: 18px;">
+        <h2>Executive Summary</h2>
+        <p class="summary-text" id="executiveSummary">Loading analysis...</p>
+      </section>
+
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

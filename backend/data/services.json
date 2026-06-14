@@ -1,0 +1,160 @@
+{
+  "services": [
+    {
+      "name": "SEO",
+      "arabic_name": "تحسين محركات البحث",
+      "aliases": ["السيو", "سيو", "SEO", "تحسين محركات البحث", "محركات البحث"],
+      "base_price": 3108.33,
+      "min_price": 1500.0,
+      "max_price": 8400.0,
+      "discount_10": 2797.5,
+      "discount_15": 2642.08,
+      "discount_20": 2486.66,
+      "related_services": ["الحملات الإعلانية", "إنشاء متجر"]
+    },
+    {
+      "name": "إنشاء متجر",
+      "arabic_name": "إنشاء متجر / خدمات التأسيس",
+      "aliases": ["متجر إلكتروني", "متجر الكتروني", "تأسيس متجر", "خدمات التأسيس", "إنشاء متجر", "online store", "e-commerce", "ecommerce", "professional online store"],
+      "base_price": 3236.36,
+      "min_price": 2000.0,
+      "max_price": 4500.0,
+      "discount_10": 2912.72,
+      "discount_15": 2750.91,
+      "discount_20": 2589.09,
+      "related_services": ["إنشاء متجر برو", "تصميم واجهة المتجر"]
+    },
+    {
+      "name": "الحملات الإعلانية",
+      "arabic_name": "الحملات الإعلانية (ADS)",
+      "aliases": ["الإعلانات", "إعلانات", "حملات إعلانية", "ADS", "إعلانات مدفوعة", "الحملات الإعلانية", "paid advertising", "paid ads", "digital advertising", "advertising"],
+      "base_price": 3265.64,
+      "min_price": 1900.0,
+      "max_price": 6750.0,
+      "discount_10": 2939.08,
+      "discount_15": 2775.79,
+      "discount_20": 2612.51,
+      "related_services": ["SEO", "التاجر الرابح"]
+    },
+    {
+      "name": "خدمات كفو",
+      "arabic_name": "خدمات كفو (خويك/أبشر/أزهلها)",
+      "aliases": ["كفو", "خويك", "أبشر", "أزهلها", "خدمات كفو"],
+      "base_price": 2045.0,
+      "min_price": 1050.0,
+      "max_price": 2800.0,
+      "discount_10": 1840.5,
+      "discount_15": 1738.25,
+      "discount_20": 1636.0,
+      "related_services": ["إنشاء متجر"]
+    },
+    {
+      "name": "التاجر الرابح",
+      "arabic_name": "التاجر الرابح",
+      "aliases": ["تاجر رابح", "التاجر الرابح", "باقة التاجر"],
+      "base_price": 4300.0,
+      "min_price": 3200.0,
+      "max_price": 8450.0,
+      "discount_10": 3870.0,
+      "discount_15": 3655.0,
+      "discount_20": 3440.0,
+      "related_services": ["باقة التاجر الرابح", "باقة سباق"]
+    },
+    {
+      "name": "باقة التاجر الرابح",
+      "arabic_name": "باقة التاجر الرابح",
+      "aliases": ["باقة التاجر الرابح", "باقة تاجر رابح"],
+      "base_price": 3510.0,
+      "min_price": 2900.0,
+      "max_price": 3950.0,
+      "discount_10": 3159.0,
+      "discount_15": 2983.5,
+      "discount_20": 2808.0,
+      "related_services": ["التاجر الرابح", "باقة سباق"]
+    },
+    {
+      "name": "باقة سباق",
+      "arabic_name": "باقة سباق",
+      "aliases": ["سباق", "باقة سباق"],
+      "base_price": 2971.4,
+      "min_price": 2677.0,
+      "max_price": 3500.0,
+      "discount_10": 2674.26,
+      "discount_15": 2525.69,
+      "discount_20": 2377.12,
+      "related_services": ["باقة التاجر الرابح"]
+    },
+    {
+      "name": "التاجر الرابح ضمان",
+      "arabic_name": "التاجر الرابح ضمان",
+      "aliases": ["تاجر رابح ضمان", "ضمان التاجر الرابح"],
+      "base_price": 7050.0,
+      "min_price": 6750.0,
+      "max_price": 7250.0,
+      "discount_10": 6345.0,
+      "discount_15": 5992.5,
+      "discount_20": 5640.0,
+      "related_services": ["التاجر الرابح"]
+    },
+    {
+      "name": "تصميم الهوية الكاملة",
+      "arabic_name": "تصميم الهوية الكاملة",
+      "aliases": ["هوية بصرية", "تصميم هوية", "الهوية الكاملة", "براند", "strong brand", "brand identity", "branding", "brand"],
+      "base_price": 3500.0,
+      "min_price": 3500.0,
+      "max_price": 3500.0,
+      "discount_10": 3150.0,
+      "discount_15": 2975.0,
+      "discount_20": 2800.0,
+      "related_services": ["تصميم واجهة المتجر"]
+    },
+    {
+      "name": "إنشاء متجر برو",
+      "arabic_name": "إنشاء متجر برو",
+      "aliases": ["متجر برو", "متجر برو", "إنشاء متجر برو"],
+      "base_price": 2000.0,
+      "min_price": 2000.0,
+      "max_price": 2000.0,
+      "discount_10": 1800.0,
+      "discount_15": 1700.0,
+      "discount_20": 1600.0,
+      "related_services": ["إنشاء متجر", "تصميم واجهة المتجر"]
+    },
+    {
+      "name": "خدمات اخري",
+      "arabic_name": "خدمات اخري",
+      "aliases": ["خدمات أخرى", "خدمات اخرى", "خدمات متنوعة"],
+      "base_price": 3950.0,
+      "min_price": 3950.0,
+      "max_price": 3950.0,
+      "discount_10": 3555.0,
+      "discount_15": 3357.5,
+      "discount_20": 3160.0,
+      "related_services": []
+    },
+    {
+      "name": "باقة ملوك المواسم",
+      "arabic_name": "باقة ملوك المواسم",
+      "aliases": ["ملوك المواسم", "باقة ملوك"],
+      "base_price": 12000.0,
+      "min_price": 12000.0,
+      "max_price": 12000.0,
+      "discount_10": 10800.0,
+      "discount_15": 10200.0,
+      "discount_20": 9600.0,
+      "related_services": ["التاجر الرابح", "الحملات الإعلانية"]
+    },
+    {
+      "name": "تصميم واجهة المتجر",
+      "arabic_name": "تصميم واجهة المتجر",
+      "aliases": ["واجهة المتجر", "تصميم واجهة", "واجهة متجر"],
+      "base_price": 1000.0,
+      "min_price": 1000.0,
+      "max_price": 1000.0,
+      "discount_10": 900.0,
+      "discount_15": 850.0,
+      "discount_20": 800.0,
+      "related_services": ["إنشاء متجر", "تصميم الهوية الكاملة"]
+    }
+  ]
+}
